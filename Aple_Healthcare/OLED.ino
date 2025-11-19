@@ -9,12 +9,12 @@ void OLED_loop() {
   String infoString;
 
   OLED.clearBuffer();
-  if (rate >= 60 && rate < 130) {
-    OLED.drawTriangle(64,16, 24,48, 104,48);
+  if (rate >= 60 && rate < 70) {
+    // OLED.drawTriangle(64,16, 24,48, 104,48);
     infoString = ("BPM is moderate");
   }
-  if (rate >= 130) {
-    OLED.drawEllipse(64, 32, 16, 16, U8G2_DRAW_ALL);
+  if (rate >= 70) {
+    // OLED.drawEllipse(64, 32, 16, 16, U8G2_DRAW_ALL);
     infoString = ("BPM is NOT chill");
   }
   if (rate < 60) {
