@@ -4,7 +4,7 @@ void speaker_setup() {
   pinMode(SPEAKER, OUTPUT);
 }
 void speaker() {
-  if (rate >= 70) {
+  if (rate >= 70 && speaker_access == 1) {
     tone(SPEAKER, 523, 200);  // C5
     delay(250);
     tone(SPEAKER, 659, 200);  // E5
