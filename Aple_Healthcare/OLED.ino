@@ -5,26 +5,33 @@ void OLED_setup() {
 
 void OLED_loop() {
   String rateString = String(rate);
-  
   String infoString;
 
   OLED.clearBuffer();
-  if (rate >= 60 && rate < 70) {
+  if (rate >= 100 && rate < 130) {
     // OLED.drawTriangle(64,16, 24,48, 104,48);
     infoString = ("BPM is moderate");
   }
-  if (rate >= 70) {
+  if (rate >= 130) {
     // OLED.drawEllipse(64, 32, 16, 16, U8G2_DRAW_ALL);
     infoString = ("BPM is NOT chill");
   }
-  if (rate < 60) {
+  if (rate < 100 && rate > 30) {
     infoString = ("BPM is chill");
+  }
+  if (rate <= 30) {
+    infoString = ("ok");
   }
 
   Serial.println(infoString);
+
+  int rateWidth = OLED.getStrWidth(rateString.c_str());
+  int rateXPos = (128 - rateWidth)/2;
+
+  int infoWidth = OLED.getStrWidth(infoString.c_str());
+  int infoXPos = (128 - infoWidth)/2;
   
-  OLED.drawStr(32, 56, infoString.c_str());
-  OLED.drawStr(64, 32, rateString.c_str());
+  OLED.drawStr(infoXPos, 56, infoString.c_str());
+  OLED.drawStr(rateXPos, 32, rateString.c_str());
   OLED.nextPage();
-  
 }
