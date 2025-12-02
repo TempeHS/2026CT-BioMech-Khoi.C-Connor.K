@@ -12,6 +12,4 @@ void button() {
   } else {
     speaker_access = 1;
   }
-
-  Serial.println(speaker_access);
 }
