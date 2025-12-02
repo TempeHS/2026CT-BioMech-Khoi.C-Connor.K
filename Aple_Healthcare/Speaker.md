@@ -1,6 +1,34 @@
-the speaker beeps for 0.5 sec on and off
 https://wiki.seeedstudio.com/Grove-Speaker/
 
-hello
-this works
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100
+1. Setup the speaker
+
+Code snippets:
+```
+#define SPEAKER 6
+
+void speaker_setup() {
+
+  pinMode(SPEAKER, OUTPUT);
+
+}
+```
+
+2. Play a tune when the heart rate is above 130 and the button has not been pressed
+
+Code snippets:
+```
+void speaker() {
+  if (rate >= 130 && speaker_access == 1) {
+    tone(SPEAKER, 523, 200);  // C5
+    delay(250);
+    tone(SPEAKER, 659, 200);  // E5
+    delay(250);
+    tone(SPEAKER, 784, 200);  // G5
+    delay(250);
+    tone(SPEAKER, 1047, 400);  // C6
+    delay(500);
+    noTone(SPEAKER);
+  }
+  digitalWrite(SPEAKER, LOW);
+}
+```
