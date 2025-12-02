@@ -5,7 +5,7 @@ void button_setup() {
 void button() {
   bool button = digitalRead(buttonPIN);
 
-  if (rate > 70) {
+  if (rate > 100) {
     if (button == true) {
       speaker_access = 0;
     }
