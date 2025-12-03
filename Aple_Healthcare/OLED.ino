@@ -6,20 +6,24 @@ void OLED_setup() {
 void OLED_loop() {
   String rateString = String(rate);
   String infoString;
+  int test = 0;
 
   OLED.clearBuffer();
   if (rate >= 100 && rate < 130) {
     infoString = ("BPM is high!");
   }
   if (rate >= 130) {
-    // OLED.drawEllipse(64, 32, 16, 16, U8G2_DRAW_ALL);
     infoString = ("BPM is too high!");
   }
   if (rate < 100 && rate > 30) {
-    infoString = ("BPM is moderate.");
+    infoString = ("BPM is ok.");
   }
   if (rate <= 30) {
     infoString = ("BPM is low!");
+  }
+
+  if (rate < 100 && rate > 30) {
+    test = 1;
   }
 
   Serial.println(infoString);
