@@ -22,10 +22,6 @@ void OLED_loop() {
     infoString = ("BPM is low!");
   }
 
-  if (rate < 100 && rate > 30) {
-    test = 1;
-  }
-
   Serial.println(infoString);
 
   int rateWidth = OLED.getStrWidth(rateString.c_str());
