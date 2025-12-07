@@ -1,6 +1,6 @@
 https://wiki.seeedstudio.com/Grove-Speaker/
 
-1. Setup the speaker
+1. Setup the speaker 
 
 Code snippets:
 ```
